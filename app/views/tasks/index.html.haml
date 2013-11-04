@@ -1,0 +1,24 @@
+%h1 Your Challenges
+
+= link_to 'New Task', new_task_path
+%h3 Stand By
+%h3 On Going
+
+%table
+  - @tasks.each do |task|
+    %tr
+      %td= task.name
+      %td (Lv.4)
+      %td
+        %i.fa.fa-play
+        %i.fa.fa-play
+        %i.fa.fa-play
+        %i.fa.fa-play
+        %i.fa.fa-play
+        %i.fa.fa-play
+        %i.fa.fa-play
+      %td= link_to 'Show', task
+      %td= link_to 'Edit', edit_task_path(task)
+      %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%h3 Accomplished
