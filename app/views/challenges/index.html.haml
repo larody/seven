@@ -1,0 +1,17 @@
+%h1 Your Challenges
+
+= link_to 'New Challenge', new_challenge_path
+
+%h3 Stand By
+%h3 On Going
+
+%table
+  - @challenges.each do |challenge|
+    %tr
+      %td= challenge.name
+      %td X / #{challenge.quota}
+      %td= link_to 'Show', challenge
+      %td= link_to 'Edit', edit_challenge_path(challenge)
+      %td= link_to 'Destroy', challenge, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%h3 Accomplished

@@ -1,7 +1,6 @@
 Seven::Application.routes.draw do
+  resources :challenges
   devise_for :users
 
-  resources :tasks
-
-  root :to => "tasks#index"
+  root :to => "challenges#index"
 end
