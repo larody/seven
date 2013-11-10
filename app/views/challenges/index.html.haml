@@ -1,17 +1,27 @@
-%h1 Your Challenges
-
-= link_to 'New Challenge', new_challenge_path
-
-%h3 Stand By
-%h3 On Going
-
+%h2 Progress
 %table
+  %tr
+    %th
   - @challenges.each do |challenge|
     %tr
       %td= challenge.name
-      %td X / #{challenge.quota}
-      %td= link_to 'Show', challenge
-      %td= link_to 'Edit', edit_challenge_path(challenge)
-      %td= link_to 'Destroy', challenge, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td #{challenge.dones.size} / #{challenge.quota}
+      %td= link_to sanitize("<i class=\"fa fa-desktop\"></i>"), challenge
+      %td= link_to sanitize("<i class=\"fa fa-edit\"></i>"), edit_challenge_path(challenge)
+      %td= link_to sanitize("<i class=\"fa fa-trash-o\"></i>"), challenge, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%h3 Accomplished
+#progressbar
+
+%img#logo{src: "http://www.wings.msn.to/image/wings.jpg"}
+
+#datepicker
+
+%h2 Proceed your challenges
+%ul 
+  = form_for @done do |f| 
+    = f.collection_select :challenge_id, @challenges, :id, :name
+    = f.date_select :done_date, use_month_numbers: true, discard_year: true, order: [:month, :day]
+    = f.submit
+
+= link_to 'Try New Challenge', new_challenge_path
+
