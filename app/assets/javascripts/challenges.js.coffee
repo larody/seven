@@ -1,5 +1,8 @@
 jQuery ->
-  $("#logo").fadeOut(3000)
-  $("#progressbar").progressbar({
-    value: 37
-  })
+  dones = parseInt( $('.dones').text() )
+
+  $('.progressbar').each ->
+    element = this
+    $(element).progressbar({
+      value: parseInt( $(element).attr("rel") ) / 7 * 100
+    })
