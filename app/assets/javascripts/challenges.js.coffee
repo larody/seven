@@ -1,8 +1,6 @@
 jQuery ->
-  dones = parseInt( $('.dones').text() )
-
   $('.progressbar').each ->
     element = this
     $(element).progressbar({
-      value: parseInt( $(element).attr("rel") ) / 7 * 100
+      value: parseInt( $(element).attr("data-dones") ) / parseInt($(element).attr("data-quota")) * 100
     })

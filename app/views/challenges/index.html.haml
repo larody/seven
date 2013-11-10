@@ -1,11 +1,17 @@
 %h2 Progress
 
-- @challenges.each do |challenge|
-  %ul
-    %li= challenge.name
-    %li= challenge.dones.size
-    %li= challenge.dones.size
-  .progressbar(rel="#{challenge.dones.size}")
+%table
+  %thead
+    %tr
+      %th.names Challenges
+      %th.progresses Progresses
+      %th.results Results
+  %tbody
+    - @challenges.each do |challenge|
+      %tr
+        %td= challenge.name
+        %td.progressbar(data-dones="#{challenge.dones.size}" data-quota="#{challenge.quota}")
+        %td #{challenge.dones.size} / #{challenge.quota}
 
 %h2 Proceed your challenges
 %ul 

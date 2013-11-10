@@ -1,0 +1,11 @@
+#!/usr/bin/ruby
+#encoding: utf-8
+
+puts `cd ~/RailsApps/kishi-mania | git add -A`
+puts "File statuses are..."
+puts `git status -s`
+print "Enter the commit message: "
+stdin = STDIN.gets
+commit_msg = stdin.nil? ? Time.now : stdin
+puts `git commit -am '#{commit_msg}'` 
+puts `git push -u origin master`
