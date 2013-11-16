@@ -1,11 +1,51 @@
-table {
-  th.names {
-    width: 200px;
-  }
-  th.results {
-    width: 100px;
-  }
-  th.progresses {
-    width: 400px;
-  }
+.progress-bar {
+  border:1px solid #bebebe;
+  background:#ffffff;
+  width:400px;
+  height:20px;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  -khtml-border-radius:10px;
+  border-radius:10px;
+}
+.status {
+  //background:#0066cc;
+  background-image: linear-gradient(to right, #EFA5C7 0%, #EF0C5F 100%);
+  width:0%;
+  height:20px;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  -khtml-border-radius:10px;
+  border-radius:10px;
+}
+
+.challenge {
+  float: left;
+  width: 250px;
+  font-size: 18px;
+}
+
+.box-right {
+  float: left;
+}
+
+.box-container {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+/* clearfix */
+.box-container:before,
+.box-vontainer:after {
+    content: "";
+    display: table;
+}
+ 
+.box-container:after {
+    clear: both;
+}
+ 
+/* For IE 6/7 (trigger hasLayout) */
+.box-container {
+    zoom: 1;
 }

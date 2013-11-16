@@ -1,24 +1,20 @@
-%h2 Progress
+%h2 Stats
+- @challenges.each do |challenge|
+  .box-container
+    .challenge
+      #{challenge.name}
+    .box-right
+      .progress-bar
+        .status(data-dones="#{challenge.dones.size}" data-quota="#{challenge.quota}")
+    .box-right
+      (#{challenge.dones.size} / #{challenge.quota})
 
-%table
-  %thead
-    %tr
-      %th.names Challenges
-      %th.progresses Progresses
-      %th.results Results
-  %tbody
-    - @challenges.each do |challenge|
-      %tr
-        %td= challenge.name
-        %td.progressbar(data-dones="#{challenge.dones.size}" data-quota="#{challenge.quota}")
-        %td #{challenge.dones.size} / #{challenge.quota}
-
-%h2 Proceed your challenges
+%h2 Add a track record
 %ul 
   = form_for @done do |f| 
     = f.collection_select :challenge_id, @challenges, :id, :name
     = f.date_select :done_date, use_month_numbers: true, discard_year: true, order: [:month, :day]
     = f.submit
 
-= link_to 'Try New Challenge', new_challenge_path
+= link_to 'Try Something New!', new_challenge_path
 

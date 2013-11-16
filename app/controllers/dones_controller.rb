@@ -14,9 +14,9 @@ class DonesController < ApplicationController
 
     respond_to do |format|
       if @done.save
-        format.html { redirect_to challenges_path, notice: 'Good job! You are deligent! :D' }
+        format.html { redirect_to challenges_path, notice: 'Good job! Keep it going!' }
       else
-        format.html { redirect_to challenges_path, notice: 'Oops! Something went wrong. :(' }
+        format.html { redirect_to challenges_path, notice: 'Oops! Something went wrong :(' }
       end
     end
   end
