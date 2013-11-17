@@ -8,16 +8,16 @@
 
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, placeholder: 'Wake Up at 6 AM'
   .field
     = f.label :status
-    = f.number_field :status
+    = f.select :status, [['Stand By', 0], ['On Going', 1], ['Finished', 2]]
   .field
     = f.label :start_date
-    = f.datetime_select :start_date
+    = f.text_field :start_date
   .field
     = f.label :end_date
-    = f.datetime_select :end_date
+    = f.text_field :end_date
   .field
     = f.label :quota
     = f.number_field :quota
@@ -25,4 +25,4 @@
     = f.label :reward
     = f.text_field :reward
   .actions
-    = f.submit 'Save'
+    = f.submit 'Submit'

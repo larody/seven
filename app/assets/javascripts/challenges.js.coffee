@@ -5,3 +5,5 @@ jQuery ->
     $(this).animate({
      width: value + "%"
     }, 1200)
+
+  $("#challenge_start_date, #challenge_end_date").datepicker()
