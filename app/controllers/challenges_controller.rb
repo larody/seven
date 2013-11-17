@@ -5,6 +5,7 @@ class ChallengesController < ApplicationController
   # GET /challenges.json
   def index
     @challenges = current_user.challenges.where(status: 1)
+    @std_day = Date.parse('2013-11-10')
     @done = Done.new
   end
 

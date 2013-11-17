@@ -1,13 +1,23 @@
-%h2 Stats
+%h3 Week Stats (#{@std_day} ~ #{@std_day + 6})
+
 - @challenges.each do |challenge|
+  - dones = 0
+  - challenge.dones.each do |done|
+    - dones += 1 if done.done_date > @std_day - 1 && done.done_date < @std_day + 7
   .box-container
-    .challenge
-      #{challenge.name}
-    .box-right
+    .box
+      .challenge
+        #{challenge.name}
       .progress-bar
-        .status(data-dones="#{challenge.dones.size}" data-quota="#{challenge.quota}")
-    .box-right
-      (#{challenge.dones.size} / #{challenge.quota})
+        .status(data-dones="#{dones}" data-quota="#{challenge.quota}")
+    .box
+      .level #{(dones)} / #{challenge.quota}
+    - if (dones / challenge.quota) >= 1
+      .box
+        .judge Done!
+
+%a.btn.btn-success{href: new_challenge_path} Try Something New
+.btn.btn-success Add New Track Record
 
 %h2 Add a track record
 %ul 
@@ -15,6 +25,3 @@
     = f.collection_select :challenge_id, @challenges, :id, :name
     = f.date_select :done_date, use_month_numbers: true, discard_year: true, order: [:month, :day]
     = f.submit
-
-= link_to 'Try Something New!', new_challenge_path
-

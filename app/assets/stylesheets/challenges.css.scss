@@ -20,18 +20,54 @@
 }
 
 .challenge {
-  float: left;
-  width: 250px;
-  font-size: 18px;
+  font-size: 22px;
+  margin-bottom: 5px;
 }
 
-.box-right {
+.level {
+  font-size: 18px;
+  display: table-cell;
+  background: #ffffff;
+  border:5px solid #ffffff;
+  width: 40px;
+  height: 40px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -khtml-border-radius: 30px;
+  border-radius: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.judge {
+  display: table-cell;
+  background: #ffffff;
+  border:5px solid red;
+  width: 30px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0 5px 0 5px;
+}
+
+.box {
   float: left;
+  margin-right: 10px;
 }
 
 .box-container {
   overflow: hidden;
+  width: 600px;
+  background: beige;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  -khtml-border-radius:5px;
+  border-radius:5px;
   margin-bottom: 10px;
+  padding: 10px;
 }
 
 /* clearfix */
